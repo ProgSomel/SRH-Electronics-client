@@ -27,6 +27,11 @@ const Home = () => {
                     <NavLink to='/brands/asus'> <div className="flex items-center gap-2 text-2xl font-semibold text-gray-500"><span className="text-red-400"><SiAsus></SiAsus></span> Asus</div></NavLink>
                 </div>
             </div>
+            <div className="flex flex-col lg:flex-row gap-4 max-w-screen-lg mx-auto px-2 md:px-4 lg:px-8 my-16">
+                <img className="w-full lg:w-1/3" src='https://i.ibb.co/XSHQg5c/samsung-Ear-Phone.jpg' alt="" />
+                <img className="w-full lg:w-1/3" src="https://i.ibb.co/Qp89xyv/anker.jpg" alt="" />
+                <img className="w-full lg:w-1/3" src="https://i.ibb.co/BCZtXZm/wiwu.jpg" alt="" />
+            </div>
             
         </div>
     );
