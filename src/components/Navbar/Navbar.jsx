@@ -25,8 +25,8 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar  flex justify-between bg-black text-white p-4 font-extrabold">
-        <div className="navbar-start">
+      <div className="navbar  flex justify-between bg-black text-white  font-extrabold">
+        <div className="navbar-start py-5">
           <div className="dropdown bg-black text-white">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
