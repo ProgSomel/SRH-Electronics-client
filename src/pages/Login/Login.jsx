@@ -6,19 +6,19 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInWithGoogle, loading, signInWithEmail } = useContext(AuthContext);
+  const { signInWithGoogle, loading, signInWithEmail } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const signInGoogle = () => {
     signInWithGoogle()
-    .then(result => {
-        toast.success('Successfully logged in')
-        navigate('/')
-    })
-    .catch(err => {
-        toast.error(err.message)
-    })
-    
+      .then((result) => {
+        toast.success("Successfully logged in");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   const signInWithEmailAndPassword = (e) => {
@@ -28,18 +28,31 @@ const Login = () => {
     const password = form.password.value;
 
     signInWithEmail(email, password)
-    .then(result => {
-        toast.success('Successfully signed in. Redirecting to Home page....');
-        navigate('/');
-    })
-    .catch(err => {
-        toast.error(err.message);
-    })
-  }
+      .then((result) => {
+        Swal.fire({
+            icon: "success",
+            title: "success",
+            text: "Successfully signed in",
+            
+          });
+        navigate("/");
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${err.message}`,
+          
+        });
+      });
+  };
 
   return (
     <div>
-      <form onSubmit={signInWithEmailAndPassword} className="min-h-screen flex items-center justify-center bg-gradient-to-r from-teal-400 via-amber-500 to-fuchsia-600">
+      <form
+        onSubmit={signInWithEmailAndPassword}
+        className="min-h-screen flex items-center justify-center bg-gradient-to-r from-teal-400 via-amber-500 to-fuchsia-600"
+      >
         <div className="bg-white p-8 rounded shadow-md w-96">
           <h2 className="text-2xl font-semibold mb-4 text-blue-600">Login</h2>
           <div className="mb-4">
@@ -85,7 +98,10 @@ const Login = () => {
           </div>
           <div>
             <p className="text-center mt-4">
-              Don't Have an Account? <Link className="underline">Register</Link>
+              Don't Have an Account?{" "}
+              <Link to="/register" className="underline">
+                Register
+              </Link>
             </p>
           </div>
         </div>
