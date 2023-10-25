@@ -22,7 +22,7 @@ const ProductDetails = () => {
           <p className="py-2">Rating:  
             <span className="text-orange-300 font-bold"> { rating}</span>
           </p>
-          <button className="btn btn-primary">Add to cart</button>
+          <button className="btn bg-orange-400 text-white font-bold">Add to cart</button>
         </div>
       </div>
     </div>

@@ -13,13 +13,31 @@ const Navbar = () => {
   }}>Home</NavLink>
       </li>
       <li>
-        <NavLink to="/addproduct" >Add Product</NavLink>
+        <NavLink to="/addproduct" style={({ isActive, isPending, isTransitioning }) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color: isPending ? "red" : "orange",
+      viewTransitionName: isTransitioning ? "slide" : "",
+    };
+  }} >Add Product</NavLink>
       </li>
       <li>
-        <NavLink to="/mycart">My Cart</NavLink>
+        <NavLink to="/mycart" style={({ isActive, isPending, isTransitioning }) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color: isPending ? "red" : "orange",
+      viewTransitionName: isTransitioning ? "slide" : "",
+    };
+  }}>My Cart</NavLink>
       </li>
       <li>
-        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/login" style={({ isActive, isPending, isTransitioning }) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color: isPending ? "red" : "orange",
+      viewTransitionName: isTransitioning ? "slide" : "",
+    };
+  }}>Login</NavLink>
       </li>
     </>
   );

@@ -1,4 +1,4 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+import { Link, NavLink, useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 
 import { DiApple } from 'react-icons/di';
@@ -16,6 +16,14 @@ const Home = () => {
 
     const [isSeeMore, setIsSeeMore] = useState(false);
     const [isSeeLess, setIsSeeLess] = useState(false);
+
+    // const fetchData = (brand) => {
+    //     fetch(`http://localhost:5000/productsByBrand/${brand}`)
+    //     .then(res=>res.json())
+    //     .then(data => {
+    //         console.log(data);
+    //     })
+    // }
 
     return (
         <div>
@@ -50,7 +58,7 @@ const Home = () => {
                 <h1 className="text-5xl font-bold italic text-orange-300 text-center">Shop by Brands</h1>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 max-w-screen-lg mx-auto px-2 md:px-4 lg:px-8 my-12  ">
-                    <NavLink to='/brands/apple'> <div className="flex items-center gap-2 text-2xl font-semibold"><DiApple></DiApple>Apple </div></NavLink>
+                    <Link to={`/brands/${"Apple"}`} > <div className="flex items-center gap-2 text-2xl font-semibold"><DiApple></DiApple>Apple </div></Link>
 
                     <NavLink to='/brands/samsung'> <div className="flex items-center gap-2 text-2xl font-semibold text-blue-500"><SiSamsung></SiSamsung>SAMSUNG</div></NavLink>
 
