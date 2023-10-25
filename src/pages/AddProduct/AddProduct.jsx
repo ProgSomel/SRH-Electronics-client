@@ -102,16 +102,7 @@ const AddProduct = () => {
           >
             Type:
           </label>
-          <select
-            className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-            id="type"
-            name="type"
-          >
-            <option value="phone">Phone</option>
-            <option value="computer">Computer</option>
-            <option value="headphone">Headphone</option>
-            {/* Add other product types here */}
-          </select>
+          <input className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" type="text" name="type" />
         </div>
         <div className="mb-4">
           <label
@@ -149,7 +140,7 @@ const AddProduct = () => {
           </label>
           <input
             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-            type="number"
+            type="text"
             id="rating"
             name="rating"
           />
