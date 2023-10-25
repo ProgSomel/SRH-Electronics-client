@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddProduct = () => {
 
     const handleSubmit = (e) => {
@@ -37,7 +39,7 @@ const AddProduct = () => {
             if (data.insertedId) {
                 Swal.fire({
                   title: "Success!",
-                  text: "Coffee Inserted Successfully!",
+                  text: `${name} Inserted Successfully!`,
                   icon: "success",
                   confirmButtonText: "Cool",
                 });
