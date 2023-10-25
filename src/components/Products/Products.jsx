@@ -1,27 +1,24 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import ProductCard from "../../components/ProductCard/ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 
-import Slider from "../../components/Slider/Slider";
 
-const ProductsByBrand = () => {
-  const products = useLoaderData();
+const Products = () => {
+
+    const products = useLoaderData();
   console.log(products);
 
   const [isSeeMore, setIsSeeMore] = useState(false);
   const [isSeeLess, setIsSeeLess] = useState(false);
 
-  return (
-    <div>
-      <div className="w-5/6 mx-auto">
-        <Slider></Slider>
-      </div>
-      {products && (
-        <p className="text-5xl font-bold text-center text-red-300">
-          !No Products Available
-        </p>
-      )}
+    return (
+        <div>
+            {/* ! Products Card  */}
       <div className="max-w-screen-lg mx-auto px-2 md:px-4 lg:px-8 my-20">
+        <h1 className="text-5xl font-bold italic text-red-300 my-12 text-center">
+          Featured Products
+        </h1>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
           {products
             ? isSeeMore
@@ -78,8 +75,8 @@ const ProductsByBrand = () => {
             : ""}
         </div>
       </div>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default ProductsByBrand;
+export default Products;

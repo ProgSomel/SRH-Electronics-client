@@ -12,6 +12,7 @@ import AddProduct from './pages/AddProduct/AddProduct.jsx';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import UpdateProduct from './pages/UpdateProduct/UpdateProduct';
 import ProductsByBrand from './pages/ProductsByBrand/ProductsByBrand';
+import Products from './components/Products/Products';
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
         path: '/brands/:brandname',
         element: <ProductsByBrand></ProductsByBrand>,
         loader: ({params})=> fetch(`http://localhost:5000/productsByBrand/${params.brandname}`)
+      },
+      {
+        path: '/products',
+        element: <Products></Products>,
+        loader: ()=> fetch('http://localhost:5000/products')
       }
     ]
   },

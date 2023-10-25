@@ -64,7 +64,7 @@ const AddProduct = () => {
             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             id="image"
-            name="image"
+            name="image" required
           />
         </div>
         <div className="mb-4">
@@ -78,7 +78,7 @@ const AddProduct = () => {
             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             id="name"
-            name="name"
+            name="name" required
           />
         </div>
         <div className="mb-4">
@@ -92,7 +92,7 @@ const AddProduct = () => {
             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             id="brand"
-            name="brand"
+            name="brand" required
           />
         </div>
         <div className="mb-4">
@@ -102,7 +102,7 @@ const AddProduct = () => {
           >
             Type:
           </label>
-          <input className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" type="text" name="type" />
+          <input className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" type="text" name="type" required /> 
         </div>
         <div className="mb-4">
           <label
@@ -115,7 +115,7 @@ const AddProduct = () => {
             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             id="price"
-            name="price"
+            name="price" required
           />
         </div>
         <div className="mb-4">
@@ -128,7 +128,7 @@ const AddProduct = () => {
           <textarea
             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             id="shortDescription"
-            name="shortDescription"
+            name="shortDescription" 
           ></textarea>
         </div>
         <div className="mb-4">
@@ -142,7 +142,7 @@ const AddProduct = () => {
             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             id="rating"
-            name="rating"
+            name="rating" required
           />
         </div>
         <div>
