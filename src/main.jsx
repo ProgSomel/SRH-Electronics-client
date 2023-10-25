@@ -9,6 +9,7 @@ import {
 import Mainlayout from './layouts/Mainlayout/Mainlayout.jsx';
 import Home from './components/Home/Home.jsx';
 import AddProduct from './pages/AddProduct/AddProduct.jsx';
+import ProductDetails from './pages/ProductDetails/ProductDetails';
 
 
 const router = createBrowserRouter([
@@ -28,9 +29,9 @@ const router = createBrowserRouter([
         element: <AddProduct></AddProduct>
       },
       {
-        path: '/products',
-        
-
+        path: '/details/:id',
+        element: <ProductDetails></ProductDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
       }
     ]
   },
