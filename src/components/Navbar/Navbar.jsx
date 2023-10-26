@@ -37,7 +37,7 @@ const Navbar = () => {
         <NavLink to='/addproduct'>Add Product</NavLink>
       </li>
       <li >
-        <NavLink to='/myCart'>Cart</NavLink>
+        <NavLink to={`/mycart/${user?.email}`}>My Cart</NavLink>
       </li>
       
 

@@ -17,6 +17,7 @@ import AuthProvider from './Providers/AuthProvider';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import PrivateRoute from './routes/PrivateRoute';
+import Cart from './pages/Cart/Cart';
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/mycart/:email',
+        element: <PrivateRoute><Cart></Cart></PrivateRoute>,
+        loader: ({params})=> fetch(`http://localhost:5000/cart/${params.email}`)
       }
     ]
   },
