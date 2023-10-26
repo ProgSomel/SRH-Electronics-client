@@ -1,9 +1,49 @@
 import { useLoaderData } from "react-router-dom";
 import { TbCurrencyTaka } from 'react-icons/tb';
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 const ProductDetails = () => {
   const product = useLoaderData();
+  const {user} = useContext(AuthContext);
+  const email = user.email;
+
 
   const { image, name, brand, type, price, shortDescription, rating } = product;
+
+  const addToCart = () => {
+    const cardProduct = { image, brand, name,  type, price, shortDescription, rating, email};
+
+    fetch('http://localhost:5000/cart', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(cardProduct)
+    })
+    .then(res=> res.json())
+    .then(data => {
+      console.log(data);
+      if (data.insertedId) {
+        Swal.fire({
+          title: "Success!",
+          text: `${name} Added to the Cart Successfully!`,
+          icon: "success",
+          confirmButtonText: "Okay",
+        });
+      }
+    })
+    .catch(err => {
+      
+        Swal.fire({
+          title: "Error!",
+          text: 'Item Already Added to the Cart',
+          icon: "error",
+          confirmButtonText: "okay",
+        });
+      
+    })
+  }
 
   return (
     <div className="hero min-h-screen bg-base-200 max-w-screen-lg mx-auto px-2 md:px-4 lg:px-8 my-20">
@@ -22,7 +62,7 @@ const ProductDetails = () => {
           <p className="py-2">Rating:  
             <span className="text-orange-300 font-bold"> { rating}</span>
           </p>
-          <button className="btn bg-orange-400 text-white font-bold">Add to cart</button>
+          <button onClick={addToCart} className="btn bg-orange-400 text-white font-bold">Add to cart</button>
         </div>
       </div>
     </div>
