@@ -2,17 +2,21 @@ import { useLoaderData } from "react-router-dom";
 import { TbCurrencyTaka } from 'react-icons/tb';
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import {  Navigate, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 const ProductDetails = () => {
   const product = useLoaderData();
   const {user} = useContext(AuthContext);
   const email = user.email;
+  const navigate = useNavigate();
 
 
   const { image, name, brand, type, price, shortDescription, rating } = product;
 
   const addToCart = () => {
     const cardProduct = { image, brand, name,  type, price, shortDescription, rating, email};
+
+    
 
     fetch('http://localhost:5000/cart', {
       method: 'POST',
@@ -31,6 +35,8 @@ const ProductDetails = () => {
           icon: "success",
           confirmButtonText: "Okay",
         });
+        navigate(`/mycart/${user?.email}`);
+        
       }
     })
     .catch(err => {

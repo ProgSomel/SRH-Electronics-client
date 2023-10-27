@@ -45,7 +45,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-[#D0E7D2] shadow-lg rounded-lg px-3 bg-black " data-aos="zoom-in" data-aos-duration="1000">
+    <div className="navbar bg-[#D0E7D2] shadow-lg rounded-lg px-3 " data-aos="zoom-in" data-aos-duration="1000">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -71,7 +71,7 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <a className="italic text-orange-300 "><span className=" text-5xl font-bold italic text-red-300">SRH</span> Event Magic</a>
+        <a className="italic text-orange-300 "><span className=" text-5xl font-bold italic text-red-300">SRH</span> Tech</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
