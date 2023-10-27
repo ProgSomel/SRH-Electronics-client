@@ -18,16 +18,19 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import PrivateRoute from './routes/PrivateRoute';
 import Cart from './pages/Cart/Cart';
+import ErrrorPage from './pages/ErrorPage/ErrrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Mainlayout></Mainlayout>,
+    errorElement: <ErrrorPage></ErrrorPage>,
     children: [
       {
         path: '/',
         element: <Home></Home>,
+        
         loader: ()=> fetch("http://localhost:5000/products")
         
 
@@ -68,7 +71,8 @@ const router = createBrowserRouter([
         path: '/mycart/:email',
         element: <PrivateRoute><Cart></Cart></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/cart/${params.email}`)
-      }
+      },
+     
     ]
   },
 ]);
