@@ -41,15 +41,17 @@ const CartCard = ({ product, products, setProducts }) => {
                   "success"
                   //
                 );
-  
-                
-                navigate('/');
-
                 const remaining = products.filter(
                   (product) => product.email !== email
                 );
                 setProducts(remaining);
               }
+  
+                 navigate(`/`);
+
+              
+
+               
               
               
 
