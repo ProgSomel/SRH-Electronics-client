@@ -1,6 +1,5 @@
 import { Link, NavLink, useLoaderData } from "react-router-dom";
 
-
 import { DiApple } from "react-icons/di";
 import { FcGoogle } from "react-icons/fc";
 import { SiSamsung, SiOneplus, SiHuawei, SiAsus } from "react-icons/si";
@@ -16,7 +15,7 @@ const Home = () => {
   const [isSeeLess, setIsSeeLess] = useState(false);
 
   // const fetchData = (brand) => {
-  //     fetch(`http://localhost:5000/productsByBrand/${brand}`)
+  //     fetch(`https://brand-shop-server-f6ezx6qlu-somel-ahmeds-projects.vercel.appproductsByBrand/${brand}`)
   //     .then(res=>res.json())
   //     .then(data => {
   //         console.log(data);

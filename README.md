@@ -1,6 +1,6 @@
 
 # Website_Name: SRH Tech
-# Live_Link: https://react-event-management-a-eec9a.web.app/
+# Live_Link: https://srh-tech.web.app/
 
 # 1. Add at least 5 Project features 🔥
 

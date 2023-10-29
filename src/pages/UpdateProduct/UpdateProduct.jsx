@@ -2,62 +2,55 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
-    
-    const product = useLoaderData();
-    const {
-        _id,
-        image,
-        name,
-        brand,
-        type,
-        price,
-        shortDescription,
-        rating
-    } = product;
+  const product = useLoaderData();
+  const { _id, image, name, brand, type, price, shortDescription, rating } =
+    product;
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const image = form.image.value;
-        const name = form.name.value;
-        const brand = form.brand.value;
-        const type = form.type.value;
-        const price = form.price.value;
-        const shortDescription = form.shortDescription.value;
-        const rating = form.rating.value;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const name = form.name.value;
+    const brand = form.brand.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const shortDescription = form.shortDescription.value;
+    const rating = form.rating.value;
 
-        const updateProduct = {
-            image,
-            name,
-            brand,
-            type,
-            price,
-            shortDescription,
-            rating
+    const updateProduct = {
+      image,
+      name,
+      brand,
+      type,
+      price,
+      shortDescription,
+      rating,
+    };
+
+    console.log(updateProduct);
+    fetch(
+      `https://brand-shop-server-f6ezx6qlu-somel-ahmeds-projects.vercel.app/products/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateProduct),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            title: "Success!",
+            text: `${name} updated Successfully!`,
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
         }
-
-        console.log(updateProduct);
-        fetch(`http://localhost:5000/products/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(updateProduct)
-        })
-        .then(res=> res.json())
-        .then(data => {
-            console.log(data);
-            if (data.modifiedCount) {
-                Swal.fire({
-                  title: "Success!",
-                  text: `${name} updated Successfully!`,
-                  icon: "success",
-                  confirmButtonText: "Cool",
-                });
-                
-              }
-        })
-    }
+      });
+  };
 
   return (
     <div className="my-5">
